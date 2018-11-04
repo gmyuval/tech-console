@@ -54,31 +54,35 @@ class TechConsole(object):
 
     def auth(self) -> None:
         login_sys = Login()
-        if not login_sys.passwd:
-            printft('First run - initialise users')
-            admin_user = self.session.prompt('Admin username (default: {}): '.format(DEFAULT_ADMIN_USERNAME))
-            if not admin_user:
-                admin_user = DEFAULT_ADMIN_USERNAME
-            admin_pass = self.session.prompt('Admin password: ', is_password=True)
-            while not admin_pass:
+        try:
+            if not login_sys.passwd:
+                printft('First run - initialise users')
+                admin_user = self.session.prompt('Admin username (default: {}): '.format(DEFAULT_ADMIN_USERNAME))
+                if not admin_user:
+                    admin_user = DEFAULT_ADMIN_USERNAME
                 admin_pass = self.session.prompt('Admin password: ', is_password=True)
-            login_sys.add(admin_user, admin_pass, level=USER_LEVELS['admin'])
-        else:
-            login_attempt = 0
-            while True:
-                user = None
-                while not user:
-                    user = self.session.prompt('Username: ', is_password=False)
-                password = self.session.prompt('Password: ', is_password=True)
-                success, level = login_sys.attempt_login(user, password)
-                if success:
-                    self.auth_level = level
-                    break
-                login_attempt += 1
-                if login_attempt == self.__max_login_atempts:
-                    printft('Login attempt limit reached. Exiting')
-                    self.exit(1)
-                printft('Username or password incorrect. Please try again')
+                while not admin_pass:
+                    admin_pass = self.session.prompt('Admin password: ', is_password=True)
+                login_sys.add(admin_user, admin_pass, level=USER_LEVELS['admin'])
+            else:
+                login_attempt = 0
+                while True:
+                    user = None
+                    while not user:
+                        user = self.session.prompt('Username: ', is_password=False)
+                    password = self.session.prompt('Password: ', is_password=True)
+                    success, level = login_sys.attempt_login(user, password)
+                    if success:
+                        self.auth_level = level
+                        break
+                    login_attempt += 1
+                    if login_attempt == self.__max_login_atempts:
+                        printft('Login attempt limit reached. Exiting')
+                        self.exit(1)
+                    printft('Username or password incorrect. Please try again')
+        except KeyboardInterrupt:
+            printft('Exiting...')
+            self.exit(0)
         self.run()
 
     def run(self) -> None:
