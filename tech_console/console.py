@@ -6,9 +6,9 @@ from prompt_toolkit import PromptSession
 from prompt_toolkit import print_formatted_text as printft
 from bitarray import bitarray
 
-from mastermind import Mastermind
-from login import Login
-from config import PROMPT, DEFAULT_ADMIN_USERNAME, USER_LEVELS, LOGIN_ATTEMPTS
+from .mastermind import Mastermind
+from .login import Login
+from .config import PROMPT, DEFAULT_ADMIN_USERNAME, USER_LEVELS, LOGIN_ATTEMPTS
 
 
 class TechConsole(object):

@@ -2,7 +2,7 @@ import random
 from bitarray import bitarray
 from typing import List, Optional
 
-from config import DEFAULT_NODE_WEIGHT, INPUT_LENGTH, ALLOWED_GUESSES
+from .config import DEFAULT_NODE_WEIGHT, INPUT_LENGTH, ALLOWED_GUESSES
 
 
 class Mastermind(object):
