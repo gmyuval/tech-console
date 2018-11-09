@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pytest = ">=3.9.3"
+
+
+[packages]
+bitarray = ">=0.8.3"
+bcrypt = ">=3.1.4"
+prompt_toolkit = ">=2.0.6"
+
+[requires]
+python_version = "3.6"

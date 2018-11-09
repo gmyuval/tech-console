@@ -2,8 +2,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 [[ -d ${DIR}/venv ]] && rm -rf ${DIR}/venv
-virtualenv -p python3 ${DIR}/venv
-source ${DIR}/venv/bin/activate
+cd ${DIR}
+pip install pipenv
 
-pip install -r ${DIR}/requirements.txt
-pip install -e ${DIR}
+pipenv install --dev

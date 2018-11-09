@@ -8,13 +8,13 @@ Technician console for project Helios LARP.
 * gcc
 * make
 * git
-* python virtualenv
+* pipenv
 * python3 pip
 
 To install prerequisites on Ubuntu 18.04 run the following
 ```bash
 sudo apt install -y python3 python3-dev gcc make git python3-pip
-pip install virtualenv
+pip install pipenv
 ```
 
 ### Installation
