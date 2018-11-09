@@ -14,9 +14,9 @@ setup(name='tech_console',
       author_email='yuvalg@gmail.com',
       url='https://github.com/gmyuval/tech-console',
       install_requires=[
-          'bitarray==0.8.3',
-          'prompt-toolkit==2.0.6',
-          'bcrypt==3.1.4',
+          'bitarray>=0.8.3',
+          'prompt-toolkit>=2.0.7',
+          'bcrypt>=3.1.4',
       ],
       entry_points={
           'console_scripts': [
